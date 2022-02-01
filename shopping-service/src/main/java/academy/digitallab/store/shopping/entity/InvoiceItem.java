@@ -5,7 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
-import java.io.Serializable;
 
 @Entity
 @Data
@@ -15,11 +14,12 @@ public class InvoiceItem  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Positive(message = "El stock debe ser mayor que cero")
     private Double quantity;
     private Double  price;
 
-    @Column(name = "product_id")
+    @Column(name = "product_id", nullable = false)
     private Long productId;
 
 
@@ -34,9 +34,9 @@ public class InvoiceItem  {
             return (double) 0;
         }
     }
+
     public InvoiceItem(){
         this.quantity=(double) 0;
         this.price=(double) 0;
-
     }
 }
