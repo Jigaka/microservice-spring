@@ -11,17 +11,17 @@ spring:
     gateway:
       discovery:
         locator:
-          enable: true
+          enabled: true
       routes:
         - id: customer-service
           uri: lb://customer-service
-          pridicates:
+          predicates:
             - Path=/customers/**
         - id: product-service
           uri: lb://product-service
-          pridicates:
+          predicates:
             - Path=/products/**
         - id: shopping-service
           uri: lb://shopping-service
-          pridicates:
+          predicates:
             - Path=/invoices/**
