@@ -1,5 +1,6 @@
 package academy.digitallab.store.shopping.entity;
 
+import academy.digitallab.store.shopping.model.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -24,6 +25,9 @@ public class Invoice {
     private String numberInvoice;
 
     private String description;
+
+    @Transient
+    private Customer customer;
 
     @Column(name = "customer_id")
     private Long customerId;
